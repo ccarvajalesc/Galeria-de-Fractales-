@@ -18,7 +18,7 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
   
 # Fractales
-##¿Qué es un fractal?
+## ¿Qué es un fractal?
 Un fractal es un objeto cuya estructura se repite a diferentes escalas. Es decir, por mucho que nos acerquemos o alejemos del objeto, observaremos siempre la misma estructura. De hecho, somos incapaces de afirmar a qué distancia nos encontramos del objecto, ya que siempre lo veremos de la misma forma.
 
 El termino fractal (del Latín fractus) fue propuesto por el matemático Benoît Mandelbrot en 1975. Los ejemplos más populares de fractales son el conjunto “Mandelbrot” o el triángulo “Sierpinski”. Este último se realiza de la siguiente manera: dibujamos un triángulo grande, colocamos otros tres triángulos en su interior a partir de sus esquinas, repetimos el último paso:
