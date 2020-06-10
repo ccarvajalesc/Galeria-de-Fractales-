@@ -33,7 +33,7 @@ divergencia e incluso la eficiencia del método.
 
 Como bien se sabe, el método de Newton se define de la siguiente forma:
 
-$$x_(n+1)=x_n - \frac{f(x_n)}{f'(x_n)}$$
+$$x_n+1=x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 Acontinuación se presentan algunos fractales producidos por iteraciones del
 método de Newton en el conjunto de los números complejos.
