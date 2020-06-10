@@ -413,7 +413,29 @@ image
 ```
 ## Fractales de Sistemas Iterados de Funciones (IFS):
 
-Hágalo realidad ñero.
+Los sistemas de funciones iteradas (SFI por sus siglas en inglés) son una herramienta matemática sencilla para construir conjuntos fractales por medio de un conjunto de aplicaciones afines contractivas. Este método fue desarrollado por M.F. Barnsley en 1985. En concreto, resulta de utilidad para obtener un fractal autosemejante a base de aplicar de forma iterativa el sistema de funciones a un conjunto cualquiera, hasta llegar a una buena aproximación del fractal que constituye el atractor del sistema.
+
+Los sistemas de funciones iteradas son conjuntos de n transformaciones afines contractivas. Normalmente se utilizan dos tipos de algoritmos, el algoritmo determinista y el algoritmo aleatorio.
+
+### Algoritmo determinista:
+
+El algoritmo determinista consiste en tomar un conjunto de puntos, que puede ser cualquier figura geométrica, y aplicarle cada una de las n transformaciones afines del sistema, con lo cual obtenemos n conjuntos de puntos transformados. A cada uno de ellos le volvemos a aplicar cada una de las n funciones, obteniendo n2 nuevos conjuntos de puntos.
+
+Continuamos de esta manera iterando sobre los resultados, hasta que la unión de todos los conjuntos obtenidos en la última iteración se va aproximando a la figura que constituye el atractor del sistema. A este atractor llegaremos siempre, independientemente de la forma conjunto de partida. Cada IFS tiene un atractor característico, que será un fractal autosemejante, ya que está construido a base de copias de sí mismo, cada vez más pequeñas. Normalmente no hacen falta muchas iteraciones para obtener dicho conjunto fractal.
+
+### Algoritmo aleatorio:
+
+El algoritmo aleatorio es similar, pero en lugar de aplicar las funciones a un conjunto de puntos, las aplicamos sobre un único punto, que vamos dibujando. A cada una de las transformaciones del sistema le asignamos un valor de probabilidad, teniendo en cuenta que la suma total de los valores de probabilidad de las funciones debe valer 1. En cada iteración del algoritmo, seleccionamos una de las transformaciones con probabilidad p. Esto es muy sencillo de hacer, simplemente se obtiene un valor aleatorio entre 0 y 1, por ejemplo con la clase Random, y se van sumando una por una las probabilidades de cada función, hasta que el resultado sea mayor que el número aleatorio obtenido. Esa será la función seleccionada.
+
+Los primeros puntos de la serie se descartan. Porque normalmente están muy alejados del atractor, el resto se van dibujando hasta obtener el dibujo del fractal correspondiente, normalmente después de un número de iteraciones entre 1000 y 5000.
+
+### Fractales generados por un algoritmo aleatorio:
+
+#### Primer fractal generado por un algoritmo aleatorio:
+
+*Árbol binario:
+
+![Árbolbinario](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Conjunto%20Julia%204.png)
 
 ## Fractales en 3D:
 
