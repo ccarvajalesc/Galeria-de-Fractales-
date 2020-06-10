@@ -95,7 +95,7 @@ z0=z-(complex((1/2),(1/4))*(f(z)/dz))
 ```
 ### Segundo fractal de Newton:
 
-Función utilizada: $z^{8}-15z^{4}-16
+Función utilizada: $z^{8}-15z^{4}-16$
 
 Fractal resultante:
 
