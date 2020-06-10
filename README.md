@@ -297,3 +297,119 @@ Función utilizada: $z^{7}-1+(cos(0.67)+\sqrt{0.5}i$
 
 Fractal resultante:
 
+![Julia2](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Conjunto%20Julia%202.png)
+
+Código:
+
+```
+xa=-2
+xb=2
+ya=-2
+yb=2
+maxit=30
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return z**7-1+complex(np.cos(0.67),np.sqrt(0.5))
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            z0=f(z)
+            if abs(z)>1000:
+                break
+            z=z0
+            r=i*32
+            g=i*13
+            b=i*20
+            image.putpixel((x,y),(r,g,b))
+image
+```
+### Conjunto de Julia 3:
+
+Función utilizada: $(\frac{1}{z}+z^{2}i)+(0+0.9i)$
+
+Fractal resultante:
+
+![Julia3](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Conjunto%20Julia%203.png)
+
+Código:
+
+```
+xa=-2
+xb=2
+ya=-2
+yb=2
+maxit=30
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return complex(1/z,z**2)+complex(0,0.9)
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            z0=f(z)
+            if abs(z)>1000:
+                break
+            z=z0
+            r=i*6
+            g=i*1
+            b=i*8
+            image.putpixel((x,y),(r,g,b))
+image
+```
+### Conjunto de Julia 4:
+
+Función utilizada: $(3z^{5}+\frac{z^{3}}{z^{2}-1}i)+(0+0.9i)$
+
+Fractal resultante:
+
+![Julia4](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Conjunto%20Julia%204.png)
+
+Código:
+
+```
+xa=-2
+xb=2
+ya=-2
+yb=2
+maxit=30
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return complex(3*z**5,z**3/z**2-1)+complex(0,0.9)
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            z0=f(z)
+            if abs(z)>1000:
+                break
+            z=z0
+            r=i*10
+            g=i*16
+            b=i*32
+            image.putpixel((x,y),(r,g,b))
+image
+```
+
+
