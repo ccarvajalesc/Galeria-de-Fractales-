@@ -429,6 +429,87 @@ El algoritmo aleatorio es similar, pero en lugar de aplicar las funciones a un c
 
 Los primeros puntos de la serie se descartan. Porque normalmente están muy alejados del atractor, el resto se van dibujando hasta obtener el dibujo del fractal correspondiente, normalmente después de un número de iteraciones entre 1000 y 5000.
 
+### Fractales generados por un algoritmo determinista:
+
+#### Primer fractal generado por un algoritmo determinista:
+
+*Curva del dragón*
+
+![CurvadelDragón](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Curva%20del%20Drag%C3%B3n.png)
+
+Código:
+
+```
+import matplotlib.pyplot as plt
+import argparse
+import math
+
+def Dragon(level, initial_state, trgt, rplcmnt, trgt2, rplcmnt2):
+    state = initial_state
+   
+    for counter in range(level):
+        state2 = ''
+        for character in state:
+            if character == trgt:
+                state2 += rplcmnt
+            elif character == trgt2:
+                state2 += rplcmnt2
+            else:
+                state2 += character
+        state = state2
+    return state
+
+totalwidth=100
+iterations = 20
+
+plt.figure(figsize=(15,15))
+
+points = dragon(iterations,totalwidth,(-totalwidth/2,0))
+plt.plot([p[0] for p in points], [p[1] for p in points], '-',color='darkviolet')
+plt.axis('equal')
+
+plt.title("Curva del Dragón. Iteración = 20")
+
+plt.show()
+```
+#### Segundo fractal generado por un algoritmo determinista:
+
+*Triángulo de Sierpinski*
+
+![SierpinskiTriangle](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Triangle%20Sierpinski.png)
+
+Código:
+
+```
+fig=plt.figure()
+ax=plt.gca()
+Tri=np.array([[0,0],[1,0],[0,1],[0,0]])
+
+def transafin(M,t,x):
+    y=M@x+t
+    return y
+
+transafin([[0.5,0],[0,0.5]],[0,0],Tri[1])
+
+Tri=np.array([[0,0],[1,0],[0,1],[0,0]])
+tritrans=np.array([transafin([[0.5,0],[0,0.5]],[0,0],i) for i in Tri])
+tritrans2=np.array([transafin([[0.5,0],[0,0.5]],[0,0.5],i) for i in Tri])
+tritrans3=np.array([transafin([[0.5,0],[0,0.5]],[0.5,0],i) for i in Tri])
+
+Tri=np.concatenate((tritrans,tritrans2,tritrans3))
+
+Tri=np.array([[0,0]])
+for i in range(8):
+    tritrans=np.array([transafin([[0.5,0],[0,0.5]],[0,0],i) for i in Tri])
+    tritrans2=np.array([transafin([[0.5,0],[0,0.5]],[0,0.5],i) for i in Tri])
+    tritrans3=np.array([transafin([[0.5,0],[0,0.5]],[0.5,0],i) for i in Tri])
+    Tri=np.concatenate((tritrans,tritrans2,tritrans3))
+plt.scatter(Tri.transpose()[0],Tri.transpose()[1],color='aqua',s=0.2)
+ax.set_xticks(np.arange(-0.2,1.4,0.2))
+ax.set_yticks(np.arange(-0.2,1.4,0.2))
+plt.grid()
+ax.axis("equal")
+```
 ### Fractales generados por un algoritmo aleatorio:
 
 #### Primer fractal generado por un algoritmo aleatorio:
