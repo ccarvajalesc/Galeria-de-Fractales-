@@ -37,19 +37,55 @@ $$x_{n+1}=x_n - \frac{f(x_n)}{f'(x_n)}$$
 
 Sin embargo, el método de Newton para números complejos, se define así:
 
-$$x_{n+1}=x_n - a(\frac{f(x_n)}{f'(x_n)})$$
+$$x_{n+1}=x_n - a\frac{f(x_n)}{f'(x_n)}$$
 
-Donde $a$ es un número complejo distinto de cero, es decir, a tiene la forma $a+bi$
+Donde $a$ es un número complejo distinto de cero, es decir, $a$ tiene la forma $a+bi$ y $bi=!0$
 
-Acontinuación se presentan algunos fractales producidos por iteraciones del
+Ya con lo anterior en mente, a continuación se presentan algunos fractales producidos por iteraciones del
 método de Newton en el conjunto de los números complejos.
 
+### Primer fractal de Newton:
 
+Función utilizada: $z^{3}-1$
 
-El profe 
+En este caso $a=\frac{1}{2}+\frac{i}{4}$
+
+Fractal resultante:
+
 ![newton1](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%20Newton%201.png)
-$$z=65x$$
-```
 
+Código:
+
+```
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+xa=-5
+xb=5
+ya=-5
+yb=5
+maxit=202
+h=1e-6
+eps=1e-3
+
+def f(z):
+    return z**3-1
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            dz=(f(z+complex(h,h))-f(z))/complex(h,h)     
+            z0=z-(complex((1/2),(1/4))*(f(z)/dz))
+            if abs (z0-z)<eps:
+                break
+            z=z0
+            r=i*1
+            g=i*12
+            b=i*24
+            image.putpixel((x,y),(r,g,b))
+image
 ```
 
