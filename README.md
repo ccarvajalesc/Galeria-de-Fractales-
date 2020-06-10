@@ -411,5 +411,101 @@ for y in range (imgy):
             image.putpixel((x,y),(r,g,b))
 image
 ```
+## Fractales de Sistemas Iterados de Funciones (IFS):
 
+Hágalo realidad ñero.
 
+## Fractales en 3D:
+
+A continuación se muestran un par de fractales de Newton en tres dimensiones:
+
+### Fractal 3D I:
+
+![newton3D1](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%203D%201.png)
+
+Código:
+
+```
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.figure as fg
+from matplotlib import cm 
+import numpy as np 
+
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d')
+ax.view_init(azim=-130,elev=45) 
+ax.dist = 4.3 
+ax.set_facecolor([.85,.85,.45]) 
+
+n = 8 
+dx = 0.0 
+dy = 0.0 
+L = 1.0 
+M = 300 
+
+def f(Z): 
+    return np.e**(-np.abs(Z))
+
+x = np.linspace(-L+dx,L+dx,M) 
+y = np.linspace(-L+dy,L+dy,M) 
+X,Y = np.meshgrid(x,y) 
+Z = X + 1j*Y 
+
+for k in range(1,n+1): 
+    ZZ = Z - (Z**4 + 1)/(4*Z**3)
+    Z = ZZ
+    W = f(Z)
+    
+ax.set_xlim(dx-L,dx+L) 
+ax.set_zlim(dy-L,dy+L) 
+ax.set_zlim(-2.5*L,2*L) 
+ax.axis("off") 
+ax.plot_surface(X, Y, -W, rstride=1, cstride=1, cmap="ocean") 
+plt.show() 
+```
+### Fractal 3d II:
+
+![newton3D2](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%203D%202.png)
+
+Código:
+
+```
+import matplotlib.pyplot as plt 
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.figure as fg
+from matplotlib import cm 
+import numpy as np 
+
+fig = plt.figure() 
+ax = fig.add_subplot(111, projection='3d')
+ax.view_init(azim=-140,elev=45) 
+ax.dist = 3.0 
+ax.set_facecolor([1.0,.15,.15]) 
+
+n = 8 
+dx = 0.0 
+dy = 0.0 
+L = 1.3 
+M = 300 
+
+def f(Z):  
+    return np.e**(-np.abs(Z))
+
+x = np.linspace(-L+dx,L+dx,M) 
+y = np.linspace(-L+dy,L+dy,M) 
+X,Y = np.meshgrid(x,y) 
+Z = X + 1j*Y 
+
+for k in range(1,n+1): 
+    ZZ = Z - (Z**4 + 1)/(4*Z**3)
+    Z = ZZ
+    W = f(Z)
+    
+ax.set_xlim(dx-L,dx+L) 
+ax.set_zlim(dy-L,dy+L) 
+ax.set_zlim(-3.5*L,4*L) 
+ax.axis("off") 
+ax.plot_surface(X, Y, W, rstride=1, cstride=1, cmap='flag') 
+plt.show()
+```
