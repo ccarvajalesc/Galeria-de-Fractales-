@@ -545,7 +545,7 @@ plt.show()
 
 *Curva de Hilbert:*
 
-![CurvadeHilbert](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Curva%20de%20Hilbertud%20sabe.PNG)
+![CurvadeHilbert](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Hilbert.png)
 
 Código:
 
@@ -571,25 +571,6 @@ a = np.array([0, 0])
 b = np.array([1, 0])
 c = np.array([1, 1])
 d = np.array([0, 1])
-ab = (a + b)/2.
-bc = (b + c)/2.
-cd = (c + d)/2.
-ad = (d + a)/2.
-
-iterations = 1
-
-fig = plt.figure(figsize=(15,15))
-plt.subplot(1,2,1).set_title("Iteración = 1)")
-
-points = hilbert(0.0, 0.0, 1.0, 0.0, 0.0, 1.0, iterations,[])
-plt.plot([p[0] for p in points], [p[1] for p in points], '-',lw=3,color='orange')
-
-plt.plot([a[0],b[0],c[0],d[0],a[0]],[a[1],b[1],c[1],d[1],a[1]],'k-',lw=1)
-plt.plot([ab[0],cd[0]],[ab[1],cd[1]],'k--',lw=1)
-plt.plot([ad[0],bc[0]],[ad[1],bc[1]],'k--',lw=1)
-plt.plot([b[0],c[0]],[b[1],c[1]],'k-',lw=3)
-
-plt.axis('equal')
 
 iterations = 5
 
