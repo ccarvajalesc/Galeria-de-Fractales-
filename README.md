@@ -224,3 +224,76 @@ for y in range (imgy):
             image.putpixel((x,y),(r,g,b))
 image
 ```
+## Conjuntos de Julia:
+
+Los conjuntos de Julia, así llamados por el matemático Gaston Julia, son una familia de conjuntos fractales que se obtienen al estudiar el comportamiento de los números complejos al ser iterados por una función.
+
+Una familia muy importante de conjuntos de Julia se obtiene a partir de funciones cuadráticas simples,como por ejemplo:
+
+$$F_c(z)=z^{2}+c$$
+donde $c$ es un número complejo.
+
+El conjunto de Julia que se obtiene a partir de esta función se denota $J_c$. El proceso para obtener este conjunto de Julia es el siguiente:
+
+Se elige un número complejo cualquiera $z$ y se va construyendo una sucesión de números de la sigguiente manera:
+
+$$z_0=z$$
+
+$$z_1=F(z_0)=z_0^{2}+c$$
+
+$$z_2=F(z_1)=z_1^{2}+c$$
+
+$$\dots$$
+
+$$z_{n+1}=F(z_n)=z_n^{2}+c$$
+
+Si esta sucesión queda acotada, entonces se dice que $z$ pertenece al conjunto de Julia de parámetro $c$ denotado por $J_c$, de lo contrario, si la sucesión tiende a infinito $z$ queda excluído de éste.
+
+Algunos ejemplos del conjunto de Julia se muestran a continuación:
+
+### Conjunto de Julia 1:
+
+Función utilizada: $z^{2}+(0+0.8i)$
+
+Fractal resultante:
+
+![Julia1](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Conjunto%20Julia%205.png)
+
+Código:
+
+```
+xa=-2
+xb=2
+ya=-2
+yb=2
+maxit=30
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return z**2+complex(0,0.8)
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            z0=f(z)
+            if abs(z)>1000:
+                break
+            z=z0
+            r=i*1
+            g=i*8
+            b=i*8
+            image.putpixel((x,y),(r,g,b))
+image
+```
+### Conjunto de Julia 2:
+
+Función utilizada: $z^{7}-1+(cos(0.67)+\sqrt{0.5}i$
+
+Fractal resultante:
+
