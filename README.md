@@ -23,6 +23,21 @@ Un fractal es un objeto cuya estructura se repite a diferentes escalas. Es decir
 
 El termino fractal (del Latín fractus) fue propuesto por el matemático Benoît Mandelbrot en 1975. Los ejemplos más populares de fractales son el conjunto “Mandelbrot” o el triángulo “Sierpinski”. Este último se realiza de la siguiente manera: dibujamos un triángulo grande, colocamos otros tres triángulos en su interior a partir de sus esquinas, repetimos el último paso:
 
+![sierspinki](![newton1](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Tri%C3%A1ngulo%20de%20Sierpinski.jpg)
+
+## Fractales de Newton
+
+Solucionar ecuaciones con variable compleja a través del método de Newton tiene una aplicación muy interesante en el campo
+de los fractales como son las figuras fractales que se producen a partir de la convergencia,
+divergencia e incluso la eficiencia del método.
+
+Como bien se sabe, el método de Newton se define de la siguiente forma:
+
+$$x_(n+1)=x_n - \frac{f(x_n)}{f'(x_n)}$$
+
+Acontinuación se presentan algunos fractales producidos por iteraciones del
+método de Newton en el conjunto de los números complejos.
+
 
 
 El profe 
