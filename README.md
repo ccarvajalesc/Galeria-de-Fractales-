@@ -39,7 +39,7 @@ Sin embargo, el método de Newton para números complejos, se define así:
 
 $$x_{n+1}=x_n - a\frac{f(x_n)}{f'(x_n)}$$
 
-Donde $a$ es un número complejo distinto de cero, es decir, $a$ tiene la forma $a+bi$ y $bi=!0$
+Donde $a$ es un número complejo distinto de cero, es decir, $a$ tiene la forma $a+bi$ y $bi=!0$.
 
 Ya con lo anterior en mente, a continuación se presentan algunos fractales producidos por iteraciones del
 método de Newton en el conjunto de los números complejos.
@@ -52,7 +52,7 @@ En este caso $a=\frac{1}{2}+\frac{i}{4}$
 
 Fractal resultante:
 
-![newton1](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%20Newton%201.png)
+![Newton1](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%20Newton%201.png)
 
 Código:
 
@@ -88,4 +88,139 @@ for y in range (imgy):
             image.putpixel((x,y),(r,g,b))
 image
 ```
+Específicamente, $a$ se encuentra en esta parte del código:
 
+```
+z0=z-(complex((1/2),(1/4))*(f(z)/dz))
+```
+### Segundo fractal de Newton:
+
+Función utilizada: $z^{8}-15z^{4}-16
+
+Fractal resultante:
+
+![Newton2](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%20Newton%202.png)
+
+Código:
+
+```
+xa=-5
+xb=5
+ya=-5
+yb=5
+maxit=202
+h=1e-6
+eps=1e-3
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return z**8+15*z**4-16
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            dz=(f(z+complex(h,h))-f(z))/complex(h,h)
+            z0=z-f(z)/dz
+            if abs (z0-z)<eps:
+                break
+            z=z0
+            r=i*32
+            g=i*7
+            b=i*7
+            image.putpixel((x,y),(r,g,b))
+image
+```
+### Tercer fractal de Newton:
+
+Función utilizada: $\frac{z^{3}}{sin(z)}$
+
+En este caso $a=\frac{1}{2}+\frac{i}{4}$
+
+Fractal resultante:
+
+![Newton3](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%20Newton%203.png)
+
+Código:
+
+```
+xa=-5
+xb=5
+ya=-5
+yb=5
+maxit=100
+h=1e-6
+eps=1e-3
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return z**3/np.sin(z)
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            dz=(f(z+complex(h,h))-f(z))/complex(h,h)
+            z0=z-(complex((1/2),(1/4))*(f(z)/dz))
+            if abs (z0-z)<eps:
+                break
+            z=z0
+            r=i*32
+            g=i*8
+            b=i*24
+            image.putpixel((x,y),(r,g,b))
+image
+```
+### Cuarto fractal de Newton:
+
+Función utilizada: $tan(z^{3})-1+z^{3}$
+
+Fractal resultante:
+
+![Newton4](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%20Newton%204.png)
+
+Código:
+
+```
+xa=-5
+xb=5
+ya=-5
+yb=5
+maxit=20
+h=1e-6
+eps=1e-3
+
+imgx=800
+imgy=800
+image=Image.new("RGB",(imgx,imgy))
+
+def f(z):
+    return np.tan(z**3)-1+z**3
+
+for y in range (imgy):
+    zy=y*(yb-ya)/(imgy-1)+ya
+    for x in range (imgx):
+        zx=x*(xb-xa)/(imgx-1)+xa
+        z=complex(zx,zy)
+        for i in range (maxit):
+            dz=(f(z+complex(h,h))-f(z))/complex(h,h)
+            z0=z-f(z)/dz
+            if abs (z0-z)<eps:
+                break
+            z=z0
+            r=i*32
+            g=i*15
+            b=i*3
+            image.putpixel((x,y),(r,g,b))
+image
+```
