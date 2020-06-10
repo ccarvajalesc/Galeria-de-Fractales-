@@ -433,9 +433,92 @@ Los primeros puntos de la serie se descartan. Porque normalmente están muy alej
 
 #### Primer fractal generado por un algoritmo aleatorio:
 
-*Árbol binario:
+*Árbol binario:*
 
-![Árbolbinario](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Conjunto%20Julia%204.png)
+![Árbolbinario](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/%C3%81rbol%20binario.png)
+
+Código:
+
+```
+import matplotlib.pyplot as plt
+import math
+
+
+def dibujaTree(x1, y1, angle, depth):
+
+    if depth:
+        x2 = x1 + int(math.cos(math.radians(angle)) * depth * 10.0)
+        y2 = y1 + int(math.sin(math.radians(angle)) * depth * 10.0)
+        plt.plot([x1,x2],[y1,y2],'-',color='darkgreen',lw=3)
+        dibujaTree(x2, y2, angle - 20, depth - 1)
+        dibujaTree(x2, y2, angle + 20, depth - 1)
+
+
+plt.figure(figsize=(10,10))
+depth = 10
+dibujaTree(100, 350, 90, depth)
+
+plt.show()
+```
+### Segundo fractal generado por un algoritmo aleatorio:
+
+*Curva de Hilbert:*
+
+![CurvadeHilbert](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Curva%20de%20Hilbertud%20sabe.PNG)
+
+Código:
+
+```
+import sys, math
+import numpy as np
+import matplotlib.pyplot as plt
+  
+def hilbert(x0, y0, xi, xj, yi, yj, n,points):
+    if n <= 0:
+        X = x0 + (xi + yi)/2
+        Y = y0 + (xj + yj)/2
+        points.append((X,Y))
+    else:
+        hilbert(x0,               y0,               yi/2, yj/2, xi/2, xj/2, n - 1,points)
+        hilbert(x0 + xi/2,        y0 + xj/2,        xi/2, xj/2, yi/2, yj/2, n - 1,points)
+        hilbert(x0 + xi/2 + yi/2, y0 + xj/2 + yj/2, xi/2, xj/2, yi/2, yj/2, n - 1,points)
+        hilbert(x0 + xi/2 + yi,   y0 + xj/2 + yj,  -yi/2,-yj/2,-xi/2,-xj/2, n - 1,points)
+        return points
+
+        
+a = np.array([0, 0])
+b = np.array([1, 0])
+c = np.array([1, 1])
+d = np.array([0, 1])
+ab = (a + b)/2.
+bc = (b + c)/2.
+cd = (c + d)/2.
+ad = (d + a)/2.
+
+iterations = 1
+
+fig = plt.figure(figsize=(15,15))
+plt.subplot(1,2,1).set_title("Iteración = 1)")
+
+points = hilbert(0.0, 0.0, 1.0, 0.0, 0.0, 1.0, iterations,[])
+plt.plot([p[0] for p in points], [p[1] for p in points], '-',lw=3,color='orange')
+
+plt.plot([a[0],b[0],c[0],d[0],a[0]],[a[1],b[1],c[1],d[1],a[1]],'k-',lw=1)
+plt.plot([ab[0],cd[0]],[ab[1],cd[1]],'k--',lw=1)
+plt.plot([ad[0],bc[0]],[ad[1],bc[1]],'k--',lw=1)
+plt.plot([b[0],c[0]],[b[1],c[1]],'k-',lw=3)
+
+plt.axis('equal')
+
+iterations = 5
+
+plt.subplot(1,2,2).set_title("Iteración = 5")
+
+points = hilbert(0.0, 0.0, 1.0, 0.0, 0.0, 1.0, iterations,[])
+plt.plot([p[0] for p in points], [p[1] for p in points], '-',lw=3,color='orange')#,lw=5)
+
+plt.axis('equal')
+```
 
 ## Fractales en 3D:
 
@@ -486,6 +569,7 @@ ax.axis("off")
 ax.plot_surface(X, Y, -W, rstride=1, cstride=1, cmap="ocean") 
 plt.show() 
 ```
+
 ### Fractal 3d II:
 
 ![newton3D2](https://raw.githubusercontent.com/ccarvajalesc/Galeria-de-Fractales-/master/Fractal%203D%202.png)
