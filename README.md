@@ -293,7 +293,7 @@ image
 ```
 ### Conjunto de Julia 2:
 
-Función utilizada: $z^{7}-1+(cos(0.67)+\sqrt{0.5}i$
+Función utilizada: $z^{7}-1+(cos(0.67)+\sqrt{0.5}i)$
 
 Fractal resultante:
 
