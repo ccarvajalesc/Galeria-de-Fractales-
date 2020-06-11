@@ -39,7 +39,7 @@ Sin embargo, el método de Newton para números complejos, se define así:
 
 $$x_{n+1}=x_n - a\frac{f(x_n)}{f'(x_n)}$$
 
-Donde $a$ es un número complejo distinto de cero, es decir, $a$ tiene la forma $a+bi$ y $bi=!0$.
+Donde $a$ es un número complejo distinto de cero, es decir, $a$ tiene la forma $a+bi$.
 
 Ya con lo anterior en mente, a continuación se presentan algunos fractales producidos por iteraciones del
 método de Newton en el conjunto de los números complejos.
