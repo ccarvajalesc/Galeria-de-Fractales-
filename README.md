@@ -27,8 +27,8 @@ El termino fractal (del Latín fractus) fue propuesto por el matemático Benoît
 
 ## Fractales de Newton
 
-Solucionar ecuaciones con variable compleja a través del método de Newton tiene una aplicación muy interesante en el campo
-de los fractales como son las figuras fractales que se producen a partir de la convergencia,
+Solucionar ecuaciones de variable compleja a través del método de Newton, tiene una aplicación muy interesante en el campo
+de los fractales como lo son las figuras fractales que se producen a partir de la convergencia,
 divergencia e incluso la eficiencia del método.
 
 Como bien se sabe, el método de Newton se define de la siguiente forma:
@@ -677,3 +677,11 @@ ax.axis("off")
 ax.plot_surface(X, Y, W, rstride=1, cstride=1, cmap='flag') 
 plt.show()
 ```
+
+## Bibliografía:
+
+- gobiernodecanarias (s.f). CONJUNTOS DE JULIA Y MANDELBROT. Recuperado el 8 de junio de 2020, disponible en: http://www3.gobiernodecanarias.org/medusa/ecoblog/mrodperv/fractales/conjuntos-de-julia-y-mandelbrot/
+
+- CSCAZORLA (2012). ¿Qué son los fractales y cómo se construyen?. Recuperado el 8 de junio de 2020, disponible en: https://www.xatakaciencia.com/matematicas/que-son-los-fractales-y-como-se-construyen
+
+- Díaz, M (2017). Dibujar fractales con Sistemas de Funciones Iteradas (IFS). Recuperado el 8 de junio de 2020, disponible en: http://software-tecnico-libre.es/es/articulo-por-tema/todas-las-secciones/todos-los-temas/todos-los-articulos/dibujar-con-sistemas-de-funciones-iteradas
